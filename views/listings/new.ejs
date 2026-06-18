@@ -1,0 +1,159 @@
+<% layout("/layouts/boilerplate") %>
+
+
+ <% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings" novalidate class="needs-validation listing-form" 
+    enctype="multipart/form-data" autocomplete="off" autocorrect="on">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" id="title" class="form-control" required>
+        <div class="valid-feedback">Title looks Good!</div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea rows="8" ya cols="60"name="listing[description]" id="description" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please enter a short description</div>
+      </div>
+  
+ 
+
+
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input name="images" type="file" class="form-control" multiple required  />
+      </div>
+
+
+      <!-- Price and Country -->
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" placeholder="enter your price" type="number" class="form-control" required />
+          <div class="invalid-feedback">Please enter a valid Price</div>
+        </div>
+        <!-- <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" placeholder="enter country name" type="text" class="form-control" pattern="[A-Za-z\s]+" required />
+          <div class="invalid-feedback">Please enter the Country name</div>
+        </div> -->
+        <div class="mb-3 col-md-8">
+  <label for="country" class="form-label">Country</label>
+  
+  <input 
+    name="listing[country]" 
+    placeholder="enter country name" 
+    type="text" 
+    class="form-control"
+    pattern="[A-Za-z\s]+"
+    value="India"
+    required
+  />
+  
+  <div class="invalid-feedback">
+    Please enter the Country name
+  </div>
+</div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" placeholder="enter your city" type="text" class="form-control" required />
+        <div class="invalid-feedback">Please enter the location</div>
+      </div>
+
+
+
+      <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" id="category" class="form-select">
+    <option value="Trending">Trending</option>
+    <option value="Rooms">Rooms</option>
+    <option value="Iconic cities">Iconic cities</option>
+    <option value="Mountain city">Mountain city</option>
+    <option value="Castles">Castles</option>
+    <option value="Boat">Boat</option>
+    <option value="Camping">Camping</option>
+    <option value="Farms">Farms</option>
+    <option value="Dome">Dome</option>
+    <option value="Igloo">Igloo</option>
+    <option value="Bath">Bath</option>
+    <option value="Hills">Hills</option>
+  </select>
+</div>
+
+
+
+      <button class="btn btn-dark add-btn mt-3">Add</button>
+    </form>
+    <br>
+  </div>
+</div>
+<style>
+  /* 🎨 Airbnb-style form styling (scoped to .listing-form) */
+.listing-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: "Circular", "Helvetica Neue", Arial, sans-serif;
+  color: #484848;
+}
+
+.listing-form h3 {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+/* Input fields and select boxes inside listing form only */
+.listing-form .form-control,
+.listing-form .form-select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listing-form .form-control:focus,
+.listing-form .form-select:focus {
+  border-color: #ff5a5f;
+  box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.2);
+  outline: none;
+}
+
+/* Labels */
+.listing-form .form-label {
+  font-weight: 500;
+  color: #484848;
+}
+
+/* Submit button */
+.listing-form .add-btn {
+  background-color: #ff5a5f;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.listing-form .add-btn:hover {
+  background-color: #e0494e;
+  transform: translateY(-1px);
+}
+
+/* Spacing */
+.listing-form .mb-3 {
+  margin-bottom: 1.2rem !important;
+}
+
+</style>

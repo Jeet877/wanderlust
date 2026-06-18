@@ -1,0 +1,159 @@
+<% layout("/layouts/boilerplate") %>
+
+
+<style>
+  .navbar input[type="search"],
+.navbar .btn.btn-danger {
+  display: none !important;
+  
+}
+</style>
+<style>
+  .navbar .search-inp,
+  .navbar .search-btn{
+    display: none !important;
+  }
+</style>
+
+
+
+
+
+
+<style>
+  /* --- Background & layout --- */
+  body {
+    background-color: #ebebeb;
+    /* background: linear-gradient(135deg, #fefefe, #e9f4ff); */
+    min-height: 100vh;
+  }
+
+  .signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  .signup-box {
+    background: #ffffff;
+    
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+  }
+
+  .signup-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .signup-box h2 {
+    text-align: center;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* --- Form styling --- */
+  .form-label {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    border: 1.5px solid #ccc;
+    padding: 0.6rem 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: #00a884;
+    box-shadow: 0 0 8px rgba(0, 168, 132, 0.3);
+  }
+
+  /* --- Button --- */
+  .btn-signup {
+    display: block;
+    width: 100%;
+    background-color: #00a884;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 0.7rem 0;
+    transition: all 0.3s ease;
+  }
+
+  .btn-signup:hover {
+    background-color: #008b6e;
+    box-shadow: 0 6px 15px rgba(0, 168, 132, 0.3);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 576px) {
+    .signup-box {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<div class="signup-wrapper">
+  <div class="signup-box">
+    <h2 >Signup on Wonderlust</h2>
+   
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+           name="username"
+           placeholder="Enter your name" 
+           id="username"
+           type="text"
+           autocomplete="off"
+            class="form-control"
+            required
+             />
+             </div>
+
+         <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+           name="email"
+           placeholder="Enter your email" 
+           id="email"
+           type="email"
+           autocomplete="off"
+            class="form-control"
+            required
+             />
+               <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+           name="password"
+           placeholder="Enter your password" 
+           id="password"
+           type="password"
+           autocomplete="off"
+            class="form-control"
+            required
+             />
+          </div>
+          <button class="btn btn-success">Signup</button>
+        </form>
+    </div>
+ </div>

@@ -1,0 +1,130 @@
+
+  <!-- Navbar + Flash -->
+   <% layout("layouts/boilerplate") %>
+  
+
+  <div class="container mt-5 mb-5">
+    <!-- <hr class="mb-4"> -->
+
+    <% if (currentUser && bookings.length > 0) { %>
+      <h3 class="mb-4 text-center">My Bookings</h3>
+      <div class="row justify-content-center">
+        <% bookings.forEach(booking => { %>
+          <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+              <img src="<%= booking.listing.image.url %>" class="card-img-top" alt="Booking image">
+              <div class="card-body">
+                <h5 class="card-title"><%= booking.listing.title %></h5>
+                <p class="card-text mb-3">
+                   <strong>Booked by:</strong> <%= booking.user.username || booking.user.name %><br>
+                  <strong>Check-in:</strong> <%= booking.checkIn.toDateString() %><br>
+                  <strong>Check-out:</strong> <%= booking.checkOut.toDateString() %><br>
+                  <strong>Guests:</strong> <%= booking.guests %><br>
+                  <strong>Price:</strong> ₹<%= booking.totalPrice %>
+                </p>
+                <form action="/bookings/<%= booking._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger btn-sm w-100">Cancel Booking</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+    <% } else { %>
+      <!-- 🩵 Message inside page -->
+      <div class="alert alert-info text-center mt-5 p-4 rounded-3 shadow-sm">
+        <h5>You haven’t booked any listings yet.</h5>
+         <p class="mb-0">Start exploring beautiful stays and make your first booking today!</p> 
+      </div> 
+    <% } %>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+  <style>
+/* Body & container */
+body {
+  background-color: #f7f7f7 !important;
+  font-family: "Arial", sans-serif !important;
+  color: #333 !important;
+}
+
+/* Page Heading */
+.container h3.text-center {
+  font-weight: 600 !important;
+  color: #222 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+}
+
+/* Booking Cards */
+.container .row.justify-content-center .col-md-4 .card {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  background-color: #fff !important;
+}
+
+.container .row.justify-content-center .col-md-4 .card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+}
+
+/* Card Images */
+.container .row.justify-content-center .col-md-4 .card-img-top {
+  height: 200px !important;
+  object-fit: cover !important;
+}
+
+/* Card Body */
+.container .row.justify-content-center .col-md-4 .card-body {
+  padding: 1.2rem !important;
+}
+
+/* Card Title */
+.container .row.justify-content-center .col-md-4 .card-title {
+  font-weight: 600 !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Card Text */
+.container .row.justify-content-center .col-md-4 .card-text {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  color: #555 !important;
+}
+
+/* Cancel Booking Button */
+.container .row.justify-content-center .col-md-4 .btn-danger {
+  background-color: #ff5a5f !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  transition: background-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.container .row.justify-content-center .col-md-4 .btn-danger:hover {
+  background-color: #e0494e !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Alert Message */
+.container .alert-info {
+  background-color: #e0f2ff !important;
+  color: #31708f !important;
+  border-radius: 12px !important;
+  padding: 2rem !important;
+  text-align: center !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+  font-size: 1rem !important;
+}
+</style>

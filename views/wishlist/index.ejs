@@ -1,0 +1,88 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-4">❤️ My Wishlist</h1>
+
+  <% if (wishlist && wishlist.listings.length > 0) { %>
+    <div class="row">
+      <% wishlist.listings.forEach(listing => { 
+        // ✅ Image handling logic
+        let imgSrc = "/images/default.jpg";
+        if (listing.images && listing.images.length > 0) {
+          const validImg = listing.images.find(img => img && img.url && img.url.trim() !== "");
+          if (validImg) {
+            imgSrc = validImg.url.startsWith("http")
+              ? validImg.url
+              : `/uploads/${validImg.url}`;
+          }
+        } else if (listing.image && listing.image.url) {
+          imgSrc = listing.image.url;
+        }
+      %>
+
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="<%= imgSrc %>" class="card-img-top" alt="<%= listing.title %>" style="object-fit: cover; height: 230px;">
+          <div class="card-body">
+            <h5 class="card-title"><%= listing.title %></h5>
+            <p class="card-text text-muted"><%= listing.location %></p>
+            <a href="/listings/<%= listing._id %>" class="btn btn-outline-dark w-100">View Listing</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="alert alert-info text-center">
+      You haven’t added any listings to your wishlist yet ❤️
+    </div>
+  <% } %>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #ffdee9, #b5fffc);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  }
+  h1 {
+    font-weight: 700;
+    color: #222;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+  }
+  .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: #fff;
+  }
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  }
+  .card-img-top {
+    height: 230px;
+    object-fit: cover;
+    border-bottom: 3px solid #ff6f91;
+    transition: all 0.4s ease;
+  }
+  .card:hover .card-img-top {
+    filter: brightness(1.1) contrast(1.05);
+    transform: scale(1.05);
+  }
+  .btn-outline-dark {
+    border: 2px solid #ff6f91;
+    color: #ff6f91;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    padding: 8px 0;
+  }
+  .btn-outline-dark:hover {
+    background: #ff6f91;
+    color: #fff;
+    box-shadow: 0 8px 15px rgba(255, 111, 145, 0.3);
+  }
+</style>

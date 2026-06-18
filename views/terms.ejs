@@ -1,0 +1,173 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+
+<style>
+  .navbar input[type="search"],
+.navbar .btn.btn-danger {
+  display: none !important;
+}
+.navbar .search-inp,
+.navbar .search-btn{
+    display: none !important;
+}
+</style>
+
+<style>
+/* Container styling */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Links */
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar overrides if needed */
+.navbar input[type="search"],
+.navbar .btn.btn-danger,
+.navbar .search-inp,
+.navbar .search-btn {
+  display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+</style>
+
+
+<div class="container mt-5 mb-5">
+  <h1 class="mb-4">Terms of Service</h1>
+  <p><strong>Last updated:</strong> <%= new Date().toLocaleDateString() %></p>
+
+  <p>
+    Welcome to <strong>StayEase</strong> (“we,” “our,” “us”). By accessing or using our services, you agree to comply with and be bound by the following terms and conditions (“Terms of Service”).
+    Please read them carefully before using our website or mobile application.
+  </p>
+
+  <h3>1. Account Registration</h3>
+  <ul>
+    <li>You must create an account to access certain features of our platform.</li>
+    <li>All information provided during registration must be accurate, complete, and up-to-date.</li>
+    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+    <li>Unauthorized use of your account must be reported immediately to StayEase.</li>
+  </ul>
+
+  <h3>2. Booking and Reservations</h3>
+  <ul>
+    <li>All bookings are subject to availability and confirmation by the host.</li>
+    <li>You are responsible for providing accurate details for your stay, including dates, number of guests, and any special requirements.</li>
+    <li>Cancellation policies vary by listing and are detailed on the booking page.</li>
+  </ul>
+
+  <h3>3. Payment Terms</h3>
+  <ul>
+    <li>Payments for bookings are processed securely by trusted third-party payment providers.</li>
+    <li>StayEase does not store full credit card information.</li>
+    <li>Fees and taxes applicable to bookings will be clearly displayed before confirmation.</li>
+  </ul>
+
+  <h3>4. User Conduct</h3>
+  <p>Users agree to:</p>
+  <ul>
+    <li>Respect hosts, other guests, and the property.</li>
+    <li>Not engage in any illegal activities or fraudulent behavior.</li>
+    <li>Follow all local laws, regulations, and property rules.</li>
+    <li>Provide honest reviews and feedback based on genuine experiences.</li>
+  </ul>
+
+  <h3>5. Host Responsibilities</h3>
+  <ul>
+    <li>Hosts must provide accurate information about their listing.</li>
+    <li>Ensurethat the property is safe, clean, and compliant with applicable regulations.</li>
+    <li>Respond promptly to booking requests and communicate clearly with guests.</li>
+  </ul>
+
+  <h3>6. Limitation of Liability</h3>
+  <p>
+    StayEase is not responsible for any direct, indirect, incidental, or consequential damages arising from the use of our platform.
+    Users acknowledge that bookings are agreements between guests and hosts, and StayEase serves only as a facilitator.
+  </p>
+
+  <h3>7. Termination</h3>
+  <p>
+    We reserve the right to suspend or terminate user accounts for violations of these Terms of Service, fraudulent activity, or other misconduct.
+  </p>
+
+  <h3>8. Changes to Terms</h3>
+  <p>
+    StayEase may update these Terms of Service from time to time. Any changes will be posted on this page with an updated date.
+    Continued use of our services constitutes acceptance of the revised terms.
+  </p>
+
+  <h3>9. Governing Law</h3>
+  <p>
+    These Terms of Service are governed by and construed in accordance with the laws of the jurisdiction in which StayEase operates.
+  </p>
+
+  <h3>10. Contact Us</h3>
+  <p>
+    For questions or concerns regarding these Terms of Service, please contact:<br />
+    <strong>StayEase Legal Team</strong><br />
+    Email: <a href="mailto:legal@stayease.com">legal@stayease.com</a>
+  </p>
+</div>
+</body>

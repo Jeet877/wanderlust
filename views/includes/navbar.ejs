@@ -1,0 +1,125 @@
+<style>
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+      transition: all 0.3s ease;
+  }
+  .search-btn:hover {
+    background-color: #fe924d;
+    color: #fff;
+  }
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .scrolled .search-inp {
+  padding: 0.25rem 1.5rem;
+  font-size: 0.8rem;
+
+  .scrolled .search-btn {
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+}
+</style>
+
+
+
+
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- LEFT SECTION -->
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+
+      <!-- SEARCH BAR -->
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search" action="/listings/search" method="GET" autocomplete="off">
+          <input 
+            class="form-control me-2 search-inp" 
+            type="search" 
+            name="q"
+            placeholder="Search destinations, stays, or experiences"
+            list="suggestions"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>Search
+          </button>
+
+          <datalist id="suggestions">
+            <option value="Beach House">
+            <option value="Mountain Resort">
+            <option value="City Center Apartment">
+          </datalist>
+        </form>
+      </div>
+
+
+      <!-- RIGHT SECTION -->
+      <div class="navbar-nav ms-auto">
+
+        <a class="nav-link d-flex" href="/listings/new"><b>Become a host</b></a>
+
+        <!-- IF USER NOT LOGGED IN -->
+        <% if (!currUser) { %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="guestDropdown" role="button" data-bs-toggle="dropdown">
+              Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="guestDropdown">
+              <li><a class="dropdown-item" href="/signup"><b>Sign Up</b></a></li>
+              <li><a class="dropdown-item" href="/login"><b>Login</b></a></li>
+            </ul>
+          </div>
+
+        <% } else { %>
+
+        <!-- LOGGED IN USER MENU -->
+        <div class="nav-item dropdown">
+
+          <!-- Avatar Button -->
+         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" 
+   role="button" data-bs-toggle="dropdown">
+
+  <span><b><%= currUser.username %></b></span>
+</a>
+
+
+          <!-- Dropdown Items -->
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="/profile"><b>My Profile</b></a></li>
+            <li><a class="dropdown-item" href="/profile/edit"><b>Edit Profile</b></a></li>
+            <li><a class="dropdown-item" href="/bookings"><b>My Bookings</b></a></li>
+            <li><a class="dropdown-item" href="/wishlist"><b>My Wishlist</b></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="/logout"><b>Log Out</b></a></li>
+          </ul>
+
+        </div>
+        <% } %>
+
+      </div>
+
+    </div>
+  </div>
+</nav>

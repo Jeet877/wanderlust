@@ -1,0 +1,173 @@
+
+<% layout("/layouts/boilerplate") %>
+<body>
+  
+  
+
+<style>
+  .navbar input[type="search"],
+.navbar .btn.btn-danger {
+  display: none !important;
+  
+}
+</style>
+<style>
+  .navbar .search-inp,
+  .navbar .search-btn{
+    display: none !important;
+  }
+</style>
+
+<style>
+/* Container styling */
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Lists */
+ul {
+  list-style-type: disc;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Links */
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar overrides if needed */
+.navbar input[type="search"],
+.navbar .btn.btn-danger,
+.navbar .search-inp,
+.navbar .search-btn {
+  display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+</style>
+
+
+
+
+
+  <div class="container mt-5 mb-5">
+    <h1 class="mb-4">Privacy Policy</h1>
+    <p><strong>Last updated:</strong> <%= new Date().toLocaleDateString() %></p>
+
+    <p>
+      Welcome to <strong>StayEase</strong> (“we,” “our,” “us”). Your privacy is very important to us.
+      This Privacy Policy explains how we collect, use, and protect your personal information
+      when you use our website and services.
+    </p>
+
+    <h3>1. Information We Collect</h3>
+    <ul>
+      <li><strong>Account Information:</strong> When you create an account, we collect your name, email, phone number, and password.</li>
+      <li><strong>Booking Data:</strong> Details about listings you view, book, or host.</li>
+      <li><strong>Payment Information:</strong> Payment details are processed securely by third-party payment providers; we do not store full credit card information.</li>
+      <li><strong>Location Data:</strong> To improve search results and listings near you.</li>
+      <li><strong>Cookies:</strong> We use cookies to personalize user experience and analyze site traffic.</li>
+    </ul>
+
+    <h3>2. How We Use Your Information</h3>
+    <ul>
+      <li>To provide, operate, and maintain our services.</li>
+      <li>To process and confirm bookings or reservations.</li>
+      <li>To communicate with you regarding your account, inquiries, or customer support.</li>
+      <li>To improve and personalize your browsing experience.</li>
+      <li>To comply with legal obligations and prevent fraud.</li>
+    </ul>
+
+    <h3>3. How We Protect Your Data</h3>
+    <p>
+      We implement industry-standard encryption and security measures to protect your data.
+      Access to your personal data is restricted to authorized personnel only.
+    </p>
+
+    <h3>4. Sharing of Information</h3>
+    <p>
+      We do not sell your personal information. We may share your data with trusted service providers
+      (payment gateways, analytics tools, etc.) strictly for operational purposes.
+    </p>
+
+    <h3>5. Your Rights</h3>
+    <p>
+      You may access, update, or delete your personal information anytime by logging into your account.
+      You can also contact our privacy team at <a href="mailto:privacy@stayease.com">privacy@stayease.com</a>.
+    </p>
+
+    <h3>6. Data Retention</h3>
+    <p>
+      We retain personal data for as long as your account is active or as needed to provide our services.
+    </p>
+
+    <h3>7. Changes to This Policy</h3>
+    <p>
+      We may update this Privacy Policy occasionally. Any changes will be posted on this page with an updated date.
+    </p>
+
+    <h3>8. Contact Us</h3>
+    <p>
+      For any privacy concerns, please contact:<br />
+      <strong>StayEase Privacy Office</strong><br />
+      Email: <a href="mailto:privacy@stayease.com">privacy@stayease.com</a>
+    </p>
+  </div>
+
+
+
+</body>
+

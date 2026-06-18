@@ -1,0 +1,128 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+
+    <h3>Edit your Listing</h3>
+
+    <!-- Note the enctype for file upload -->
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" />
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea rows="13" cols="80" name="listing[description]" class="form-control"><%= listing.description %></textarea>
+      </div>
+
+      <!-- Existing Image URL -->
+     <!-- Existing Images -->
+<!-- Existing images with delete checkboxes -->
+
+<div class="mb-3">
+  <label class="form-label">Existing Images (Check to delete)</label>
+  <div class="row flex-row flex-nowrap overflow-auto g-3 mb-3">
+
+    <% if (listing.images && listing.images.length > 0) { %>
+      <% listing.images.forEach(img => { %>
+        <% if (img.url) { %>
+          <div class="col-auto text-center">
+            <img src="<%= img.url %>" 
+                 alt="Listing Image" 
+                 class="card-img-top show-img card-image-bottom mb-1" 
+                 style="width: 150px; height: 100px; object-fit: cover; border-radius: 8px;">
+            <div>
+              <input type="checkbox" name="deleteImages[]" value="<%= img.filename %>"> Delete
+            </div>
+          </div>
+        <% } %>
+      <% }) %>
+
+    <% } else if (listing.image && listing.image.url) { %>
+      <div class="col-auto text-center">
+        <img src="<%= listing.image.url %>" 
+             alt="Listing Image" 
+             class="card-img-top show-img card-image-bottom mb-1" 
+             style="width: 150px; height: 100px; object-fit: cover; border-radius: 8px;">
+        <div>
+          <input type="checkbox" name="deleteImages[]" value="<%= listing.image.filename %>"> Delete
+        </div>
+      </div>
+
+    <% } else { %>
+      <p>No existing images.</p>
+    <% } %>
+
+  </div>
+</div>
+
+
+
+
+      <!-- Upload new image -->
+      <!-- <div class="mb-3">
+        <label for="imageUpload" class="form-label">Upload a New Image</label>
+        <input type="file" name="image" class="form-control">
+      </div> -->
+
+      <!-- Upload new images -->
+<div class="mb-3">
+  <label for="imagesUpload" class="form-label">Upload New Images</label>
+  <input type="file" name="images" id="imagesUpload" class="form-control" multiple>
+  <small class="form-text text-muted">You can select multiple images at once.</small>
+</div>
+
+
+
+
+      <!-- Price & Country -->
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control"/>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control"/>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control"/>
+      </div>
+
+
+        <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select name="listing[category]" id="category" class="form-select">
+    <option value="Trending">Trending</option>
+    <option value="Rooms">Rooms</option>
+    <option value="Iconic cities">Iconic cities</option>
+    <option value="Mountain city">Mountain city</option>
+    <option value="Castles">Castles</option>
+    <option value="Boat">Boat</option>
+    <option value="Camping">Camping</option>
+    <option value="Farms">Farms</option>
+    <option value="Dome">Dome</option>
+    <option value="Igloo">Igloo</option>
+    <option value="Bath">Bath</option>
+    <option value="Hills">Hills</option>
+  </select>
+</div>
+
+
+
+      <button class="btn btn-dark edit-btn mt-3">Update</button>
+    </form>
+    <br>
+
+  </div>
+</div>
